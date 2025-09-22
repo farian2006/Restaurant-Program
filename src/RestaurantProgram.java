@@ -6,7 +6,7 @@ public class RestaurantProgram {
         Scanner sc= new Scanner(System.in);
 
 //       Welcome Message
-        System.out.println("Welcome To VillageVibe! ");
+        System.out.println("Welcome To VillageVibe!");
 
 //        Menu Bar
         String[] mainDishes={"Chicken Biryani","Beef Biryani","Vegetable Fried Rice", "Grilled Chicken with Rice","Fish Curry with Steamed Rice"};
@@ -27,7 +27,7 @@ public class RestaurantProgram {
         ArrayList<String> cart = new ArrayList<>();
         ArrayList<Double> cartPrices = new ArrayList<>();
 
-        // Customer Choice
+    
         boolean isRunning =true;
         while (isRunning) {
             System.out.println("----- Restaurant Menu -----");
@@ -39,10 +39,12 @@ public class RestaurantProgram {
             System.out.println("6. Exit");
             System.out.println("7. See Cart ");
             System.out.print("Enter your choice: ");
-
+               
+            // Customer Choice
             System.out.print("Enter A Choice(1-7): ");
             int choice = sc.nextInt();
 
+            // Switching Between Different Choices
             switch (choice) {
                 case 1:
                     // Show Main Dishes
@@ -57,7 +59,7 @@ public class RestaurantProgram {
 
                     if (subChoice1 >= 1 && subChoice1 <= mainDishes.length) {
                         System.out.println("Selected Item:  " + mainDishes[subChoice1 - 1]);
-//                        Cart Add
+//                        Cart Add With Price
                         cart.add(mainDishes[subChoice1 - 1]);
                         cartPrices.add(mainDishesPrice[subChoice1 - 1]);
                     } else {
@@ -75,7 +77,7 @@ public class RestaurantProgram {
                     int subChoice2=sc.nextInt();
                     if (subChoice2 >= 1 && subChoice2 <= starterDishes.length) {
                         System.out.println("Selected Item:  " + starterDishes[subChoice2 - 1]);
-//                        Cart Add
+//                       Cart Add With Price
                         cart.add(starterDishes[subChoice2 - 1]);
                         cartPrices.add(starterDishesPrice[subChoice2 - 1]);
                     } else {
@@ -104,7 +106,7 @@ public class RestaurantProgram {
                         int subBurgerChoice=sc.nextInt();
                         if (subBurgerChoice >= 1 && subBurgerChoice <= burgerList.length) {
                             System.out.println("Selected Item:  " + burgerList[subBurgerChoice - 1]);
-//                           Cart Add
+//                           Cart Add With Price
                             cart.add(burgerList[subBurgerChoice - 1]);
                             cartPrices.add(burgerPrice[subBurgerChoice - 1]);
                         } else {
@@ -115,7 +117,7 @@ public class RestaurantProgram {
                     else if(subChoice3==2){
                         // SandWitch Case
                         System.out.println("Selected Item: "+ snacksMeals[subChoice3-1]);
-//                        Cart Add
+//                        Cart Add With Price
                         cart.add(snacksMeals[subChoice3 - 1]);
                         cartPrices.add(snacksMealsPrice[subChoice3 - 1]);
                     }
@@ -130,7 +132,7 @@ public class RestaurantProgram {
                         int subShawarmaChoice=sc.nextInt();
                         if (subShawarmaChoice >= 1 && subShawarmaChoice <= shawarmaList.length) {
                             System.out.println("Selected Item:  " + shawarmaList[subShawarmaChoice - 1]);
-//                           Cart Add
+//                         Cart Add With Price
                             cart.add(shawarmaList[subShawarmaChoice - 1]);
                             cartPrices.add(shawarmaPrice[subShawarmaChoice - 1]);
                         } else {
@@ -153,7 +155,7 @@ public class RestaurantProgram {
                     int desertSubChoice=sc.nextInt();
                     if (desertSubChoice >= 1 && desertSubChoice <= desertsList.length) {
                         System.out.println("Selected Item:  " + desertsList[desertSubChoice - 1]);
-//                        Cart Add
+//                        Cart Add With Price
                         cart.add(desertsList[desertSubChoice - 1]);
                         cartPrices.add(desertListPrice[desertSubChoice - 1]);
                     } else {
@@ -171,17 +173,19 @@ public class RestaurantProgram {
                     int drinkSubChoice=sc.nextInt();
                     if (drinkSubChoice >= 1 && drinkSubChoice <= drinksList.length) {
                         System.out.println("Selected Item:  " + drinksList[drinkSubChoice - 1]);
-//                        Cart Add
+//                       Cart Add With Price
                         cart.add(drinksList[drinkSubChoice - 1]);
                         cartPrices.add(drinksListPrice[drinkSubChoice - 1]);
                     } else {
                         System.out.println("Invalid choice!");
                     }break;
                 case 6 :
+                    // Exit Message
                     System.out.println("Thank You For Your Order!");
                     isRunning=false;
                     break;
                 case 7:
+                    // Final Cart Update with Price and others
                     boolean inCartMenu = true;
                     while (inCartMenu) {
                         System.out.println("\n***** Your Cart *****");
@@ -205,6 +209,7 @@ public class RestaurantProgram {
                         System.out.print("Choose an option: ");
                         int cartChoice = sc.nextInt();
 
+                        // Branching Between Different Cart Options
                         switch (cartChoice) {
                             case 1:
                                 if (cart.isEmpty()) {
